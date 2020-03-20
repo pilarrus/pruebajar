@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>pruebajar</groupId>
+  <artifactId>pruebajar</artifactId>
+  <version>1.0</version>
+
+  <!-- Se indica en que formato compila -->
+  <packaging>jar</packaging>
+
+  <name>pruebajar</name>
+  <url>http://www.example.com</url>
+
+  <!-- Segurar que es 1.8 -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.build.timestamp.format>dd/MM/yyyy HH:mm:ss</maven.build.timestamp.format>
+    <historical-commons.version>${project.version}</historical-commons.version>
+    <historical-commons.timestamp>${maven.build.timestamp}</historical-commons.timestamp>
+    <historical-commons.hash>0</historical-commons.hash>
+    <maven.javadoc.skip>true</maven.javadoc.skip>
+
+    <!-- Configurar servidor de artefactos NEXUS -->
+    <!--
+    <nexus-id>nexus</nexus-id>
+    <nexus-url>http://192.168.10.94:8081/nexus</nexus-url>
+    <nexus-releases-url>${nexus-url}/content/repositories/releases</nexus-releases-url>
+    <nexus-snapshots-url>${nexus-url}/content/repositories/snapshots</nexus-snapshots-url>
+    -->
+  </properties>
+
+  <!--
+  <repositories>
+    <repository>
+      <id>${nexus-id}</id>
+      <url>${nexus-releases-url}</url>
+    </repository>
+  </repositories>
+  -->
+
+  <dependencies>
+
+    <!-- Api para JEE  JAVA 8 -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>8.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <plugins>
+      <!-- Se compila con Java 1.8 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+      <!-- Se rellena la información de VersionInfo -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>templating-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <id>filter-src</id>
+            <goals>
+              <goal>filter-sources</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+
+      <!-- Se incluye el javadoc en el .jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Se incluye el javadoc en el .jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.4</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
