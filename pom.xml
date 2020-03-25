@@ -26,7 +26,7 @@
 
     <!-- Configurar servidor de artefactos NEXUS -->
     <nexus-id>localNexus</nexus-id>
-    <nexus-url>http://localhost:8081</nexus-url>
+    <nexus-url>http://172.19.0.1:8081</nexus-url>
     <nexus-releases-url>${nexus-url}/repository/maven-releases/</nexus-releases-url>
     <!--<nexus-snapshots-url>${nexus-url}/content/repositories/snapshots</nexus-snapshots-url>
     -->
