@@ -32,6 +32,12 @@
     -->
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>${nexus-id}</id>
+      <url>${nexus-releases-url}</url>
+    </repository>
+  </distributionManagement>
 
   <repositories>
     <repository>
