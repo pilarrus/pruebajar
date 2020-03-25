@@ -25,22 +25,20 @@
     <maven.javadoc.skip>true</maven.javadoc.skip>
 
     <!-- Configurar servidor de artefactos NEXUS -->
-    <!--
-    <nexus-id>nexus</nexus-id>
-    <nexus-url>http://192.168.10.94:8081/nexus</nexus-url>
-    <nexus-releases-url>${nexus-url}/content/repositories/releases</nexus-releases-url>
-    <nexus-snapshots-url>${nexus-url}/content/repositories/snapshots</nexus-snapshots-url>
+    <nexus-id>localNexus</nexus-id>
+    <nexus-url>http://localhost:8081</nexus-url>
+    <nexus-releases-url>${nexus-url}/repository/maven-releases/</nexus-releases-url>
+    <!--<nexus-snapshots-url>${nexus-url}/content/repositories/snapshots</nexus-snapshots-url>
     -->
   </properties>
 
-  <!--
+
   <repositories>
     <repository>
       <id>${nexus-id}</id>
       <url>${nexus-releases-url}</url>
     </repository>
   </repositories>
-  -->
 
   <dependencies>
 
