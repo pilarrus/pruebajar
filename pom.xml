@@ -6,7 +6,7 @@
 
   <groupId>pruebajar</groupId>
   <artifactId>pruebajar</artifactId>
-  <version>1.0</version>
+  <version>1.0.1</version>
 
   <!-- Se indica en que formato compila -->
   <packaging>jar</packaging>
